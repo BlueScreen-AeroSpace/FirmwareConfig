@@ -23,7 +23,6 @@ async function fetchReleases() {
             select.appendChild(option);
         })
         select.dispatchEvent(new Event('change'));
-        console.log(data);
     } catch (error) {
         console.error("Error: ", error);
     }
