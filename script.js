@@ -34,6 +34,6 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("builds-select").addEventListener("change", (e) => {
         const installBtn = document.getElementById("install-btn");
 
-        installBtn.setAttribute("manifest", "./manifest/manifest-" + e.target.value);
+        installBtn.setAttribute("manifest", "manifest/manifest-" + e.target.value + ".json");
     })  
 });
