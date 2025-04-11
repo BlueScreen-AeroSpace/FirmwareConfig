@@ -14,8 +14,6 @@ async function fetchReleases() {
 
         const select = document.getElementById("builds-select");
 
-        select.innerHTML = "";
-
         data.map((release) => {
             const option = document.createElement("option");
             option.value = release.tag_name;

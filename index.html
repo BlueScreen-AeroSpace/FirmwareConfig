@@ -6,13 +6,39 @@
     <link rel="icon" type="image/x-icon" href="public/logo.ico">
     <script src="./script.js"></script>
     <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+    <link rel="stylesheet" href="dist/output.css">
 </head>
 
-<body>
-    <select id="builds-select">
-        <option>Builds...</option>
-    </select>
-    <esp-web-install-button id="install-btn" manifest=""></esp-web-install-button>
+<body class="bg-zinc-800">
+    <div class="flex justify-center mx-auto">
+        <div class="flex flex-col justify-around">
+            <img src="public/header.png" alt="Logo">
+            <div class="flex justify-center">
+                <div class="flex flex-col items-center">
+                    <div class="text-zinc-300 text-xl my-3">
+                        <h3 class="text-2xl my-2">Welcome to the Blue Screen Aerospace firmware installer.</h3>
+                        <h3>1. Plug in your ESP32 to your computer.</h3>
+                        <h3>2. Select the firmware version you want to install.</h3>
+                        <h3>3. Press install and choose the right USB port.</h3>
+                    </div>
+                    <h3 class="text-zinc-300">Version</h3>
+                    <select id="builds-select" class="bg-zinc-600 text-white border border-zinc-500 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-zinc-500">                        <optgroup label="Release">
+
+                        </optgroup>
+                    </select>
+                    </optgroup>
+                    <esp-web-install-button id="install-btn" manifest="">
+                        <button class="bg-zinc-600 text-zinc-300 border border-zinc-500 hover:bg-zinc-400 py-2 px-5 my-3 rounded-md" slot="activate">Install</button>
+                    </esp-web-install-button>
+                    <div class="flex flex-row text-md text-zinc-300 my-5">
+                        <h3>Powered by&nbsp;</h3>
+                        <a href="https://esphome.github.io/esp-web-tools/" class="underline"> ESP web tools</a>
+                    </div>          
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
