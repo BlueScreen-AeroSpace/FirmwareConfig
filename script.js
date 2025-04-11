@@ -26,11 +26,32 @@ async function fetchReleases() {
     }
 }
 
-window.addEventListener("DOMContentLoaded", fetchReleases);
 window.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("builds-select").addEventListener("change", (e) => {
-        const installBtn = document.getElementById("install-btn");
+    if (isChromiumBased()) {
+        fetchReleases();
 
-        installBtn.setAttribute("manifest", "manifest/manifest-" + e.target.value + ".json");
-    })  
+        document.getElementById("builds-select").addEventListener("change", (e) => {
+            const installBtn = document.getElementById("install-btn");
+
+            installBtn.setAttribute("manifest", "manifest/manifest-" + e.target.value + ".json");
+        })
+    } else {
+        const contentDiv = document.getElementById("content-div");
+
+        contentDiv.innerHTML = "";
+        contentDiv.innerHTML = `
+            <div class="flex justify-center">
+                <h3 class="text-zinc-300 text-2xl my-5">Sorry your browser in not supported. Use Chrome, Edge or Opera.</h3>
+            </div>
+        `
+    }
 });
+
+window.addEventListener("DOMContentLoaded", () => {
+
+});
+
+function isChromiumBased() {
+    const ua = navigator.userAgent;
+    return ua.includes('Chrome') && !ua.includes('Edg') && !ua.includes('OPR');
+}
